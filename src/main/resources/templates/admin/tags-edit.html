@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>博客新增</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}" >
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{css/me.css}">
+    <style>
+        body {
+            /*background: url("../images/bg_1.png");*/
+        }
+
+        .m-padded-mini {
+            padding: 0.2em !important;
+        }
+
+        .m-padded-tiny {
+            padding: 0.3em !important;
+        }
+
+        .m-padded-tb-mini {
+            padding-top: 0.2em !important;
+            padding-bottom: 0.2em !important;
+        }
+
+        .m-padded-tb-tiny {
+            padding-top: 0.3em !important;
+            padding-bottom: 0.3em !important;
+        }
+
+        .m-padded-small {
+            padding-top: 0.5em !important;
+            padding-bottom: 0.5em !important;
+        }
+
+        .m-padded-tb {
+            padding-top: 1em !important;
+            padding-bottom: 1em !important;
+        }
+
+        .m-padded-tb-large {
+            padding-top: 2em !important;
+            padding-bottom: 2em !important;
+        }
+
+        .m-padded-tb-big {
+            padding-top: 3em !important;
+            padding-bottom: 3em !important;
+        }
+
+        .m-padded-tb-huge {
+            padding-top: 4em !important;
+            padding-bottom: 4em !important;
+        }
+
+        .m-padded-tb-massive {
+            padding-top: 5em !important;
+            padding-bottom: 5em !important;
+        }
+
+        .m-text-thin {
+            font-weight: 300 !important;
+        }
+
+        .m-text-spaced {
+            letter-spacing: 1px !important;
+        }
+
+        .m-text-lined {
+            line-height: 1.8 !important;
+        }
+
+        .m-opacity-mini {
+            opacity: 0.8 !important;
+        }
+
+        .m-inline-block {
+            display: inline-block !important;
+        }
+
+        .m-container {
+            max-width: 72em !important;
+            margin: auto !important;
+        }
+
+        .m-text {
+            font-weight: 300 !important;
+            letter-spacing: 1px !important;
+            line-height: 1.8;
+        }
+
+        .m-margin-tb-tiny {
+            margin-top: 0.3em !important;
+            margin-bottom: 0.3em !important;
+        }
+
+        .m-black {
+            color: #333 !important;
+        }
+
+        .m-margin-top-small {
+            margin-top: 0.5em !important;
+        }
+
+        .m-margin-top {
+            margin-top: 1em !important;
+        }
+
+        .m-margin-top-large {
+            margin-top: 2em !important;
+        }
+
+        .m-right-top {
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+        }
+
+        .m-mobile-show {
+            display: none !important;
+        }
+
+        .m-opacity-tiny {
+            opacity: 0.6 !important;
+        }
+
+        .m-container-small {
+            max-width: 60em !important;
+            margin: auto !important;
+        }
+
+        .m-padded-lr {
+            padding-left: 4em !important;
+            padding-right: 4em !important;
+        }
+
+        .m-padded-lr-responsive {
+            padding-left: 4em !important;
+            padding-right: 4em !important;
+        }
+
+        .m-margin-bottom-mini {
+            margin-bottom: 0.5em !important;
+        }
+
+        .m-mobile-wide {
+            width: 100% !important;
+        }
+
+        .m-shadow-small {
+            -webkit-box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2) !important;
+            box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2) !important;
+        }
+
+        .m-fixed {
+            position: fixed !important;
+            z-index: 10 !important;
+        }
+
+        .m-right-bottom {
+            bottom: 0 !important;
+            right: 0 !important;
+        }
+
+        .m-padded {
+            padding: 1em !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            .m-mobile-hide {
+                display: none !important;
+            }
+
+            .m-mobile-show {
+                display: block !important;
+            }
+
+            .m-padded-lr-responsive {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .m-mobile-lr-clear {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<!--导航-->
+    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">管理后台</h2>
+                <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+                <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" th:href="@{/admin/tags}" class="active m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <div class="right m-item m-mobile-hide menu">
+                    <div class="ui dropdown  item">
+                        <div class="text">
+                            <img class="ui avatar image" src="../../static/images/个人.jpg" th:src="@{/images/个人.jpg}">
+                            李华英
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item" th:href="@{/admin/logout}">退出</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black  icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a class="item active " href="#" th:href="@{/admin/tags/input}">新增</a>
+                <a href="#" class="item " th:href="@{/admin/tags}">列表</a>
+            </div>
+        </div>
+    </div>
+
+<!--中间内容-->
+    <div class="m-padded-tb-big m-container-small">
+        <div class="ui container">
+           <form class="ui form" action="#"    th:object="${tag}"  th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}"  method="post">
+               <input type="hidden" name="id" th:value="*{id}">
+               <div class=" field">
+                   <div class="ui left labeled input">
+                       <label class="ui  teal basic label">名称</label>
+                        <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+                   </div>
+               </div>
+               <div class="ui error message"></div>
+               <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+                   <i class="close icon"></i>
+                   <div class="header">验证失败</div>
+                   <p th:errors="*{name}">提交信息不符合规则</p>
+               </div>
+               <div class="ui right aligned container">
+                   <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+                   <button class="ui  teal submit button">提交</button>
+               </div>
+           </form>
+
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部-->
+    <footer class="ui vertical inverted segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../../static/images/微信.jpg" th:src="@{/images/微信.jpg}" class="ui rounded image" alt="我的名片" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">博客寄语</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">&nbsp;&nbsp;&nbsp;&nbsp;在微博上写上你的名字;在空间里存放你的相片;在博客中诉说我们的故事;让你的生日成为我的。</a>
+<!--                        <a href="#" class="item">我不能忘记你，所以只有你忘记我才能结束这段感情。</a>-->
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: wangsbia198@163.com</a>
+                        <a href="#" class="item">QQ: 3306877211</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">My Blog</h4>
+                    <p class="m-opacity-mini m-text-thin m-text-spaced">博客是继MSN、BBS、ICQ之后出现的第4种网络交流方式，现已受到大家的欢迎，是网络时代的个人“读者文摘”，是以超链接为入口的网络日记，它代表着新的生活、工作和学习方式。这是我的个人博客，分享关于生活，感情，编程，写作相关的内容，希望可以给您带来帮助</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright©2023-2030 designed by wang</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+<!--<script src="../../static/lib/editormd/editormd.min.js"></script>-->
+
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.5.0/components/accordion.js"></script>-->
+<script type="text/javascript">
+
+
+    $('.menu.toggle').click(function (){
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+    $('.ui .dropdown').dropdown({
+        on:'hover'
+    });
+    $('.ui .form').form({
+        fields :{
+            title :{
+                identifier:'name',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入分类名称'
+                }]
+            }
+        }
+    });
+    $('.message .close').on('click',function (){
+        $(this).closest('.message').transition('fade');
+    });
+</script>
+</body>
+</html>

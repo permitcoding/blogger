@@ -1,0 +1,37 @@
+2023-06-07 11:01:01.358  INFO 13348 --- [restartedMain] com.example.blogger.BloggerApplication   : Starting BloggerApplication using Java 1.8.0_362 on LAPTOP-IHC155SJ with PID 13348 (F:\IDEA\博客后端\blogger\target\classes started by 莫逆 in F:\IDEA\博客后端\blogger)
+2023-06-07 11:01:01.363  INFO 13348 --- [restartedMain] com.example.blogger.BloggerApplication   : The following 1 profile is active: "dev"
+2023-06-07 11:01:01.432  INFO 13348 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-07 11:01:01.433  INFO 13348 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-07 11:01:02.123  INFO 13348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-07 11:01:02.181  INFO 13348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
+2023-06-07 11:01:02.852  INFO 13348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-07 11:01:02.861  INFO 13348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-07 11:01:02.861  INFO 13348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-06-07 11:01:02.919  INFO 13348 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-07 11:01:02.919  INFO 13348 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1485 ms
+2023-06-07 11:01:03.047  INFO 13348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-07 11:01:03.102  INFO 13348 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-06-07 11:01:03.234  INFO 13348 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-07 11:01:03.330  INFO 13348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-07 11:01:03.646  INFO 13348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-07 11:01:03.665  INFO 13348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-06-07 11:01:04.529  INFO 13348 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-07 11:01:04.537  INFO 13348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-07 11:01:06.303  INFO 13348 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-07 11:01:06.595  INFO 13348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-07 11:01:06.640  INFO 13348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-07 11:01:06.650  INFO 13348 --- [restartedMain] com.example.blogger.BloggerApplication   : Started BloggerApplication in 5.673 seconds (JVM running for 6.391)
+2023-06-07 11:01:20.576  INFO 13348 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-07 11:01:20.577  INFO 13348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-07 11:01:20.578  INFO 13348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-06-07 11:01:20.606  INFO 13348 --- [http-nio-8080-exec-1] com.example.blogger.aspect.LogAspect     : Request :{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.example.blogger.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2023-06-07 11:01:20.715  WARN 13348 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2023-06-07 11:01:20.762  WARN 13348 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2023-06-07 11:01:20.815  INFO 13348 --- [http-nio-8080-exec-1] com.example.blogger.aspect.LogAspect     : Result:index
+2023-06-07 11:01:27.717  INFO 13348 --- [http-nio-8080-exec-7] com.example.blogger.aspect.LogAspect     : Request :{url='http://localhost:8080/blog/31', ip='0:0:0:0:0:0:0:1', classMethod='com.example.blogger.web.IndexController.blog', args=[31, {}]}
+2023-06-07 11:01:27.799  INFO 13348 --- [http-nio-8080-exec-7] com.example.blogger.aspect.LogAspect     : Result:details
+2023-06-07 11:01:28.152  INFO 13348 --- [http-nio-8080-exec-2] com.example.blogger.aspect.LogAspect     : Request :{url='http://localhost:8080/comments/31', ip='0:0:0:0:0:0:0:1', classMethod='com.example.blogger.web.CommentController.comments', args=[31, {}]}
+2023-06-07 11:01:28.222  INFO 13348 --- [http-nio-8080-exec-2] com.example.blogger.aspect.LogAspect     : Result:details :: commentList
+2023-06-07 11:02:48.825  INFO 13348 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-07 11:02:48.827  INFO 13348 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-07 11:02:48.831  INFO 13348 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

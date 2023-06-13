@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+#  mvc:
+#    static-path-pattern: /static/**
+
+  thymeleaf:
+    mode: HTML
+  jpa:
+    open-in-view: false
+
+comment.avatar: /images/1.jpg

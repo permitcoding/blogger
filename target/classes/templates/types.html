@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>博客分类</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+
+</head>
+<body>
+<!--导航-->
+    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">Blogger</h2>
+                <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" th:href="@{/types/-1}" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+                <div class="right m-item item m-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="请输入搜索内容">
+                        <i class="search icon link"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black  icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+<!--中间内容-->
+    <div class="m-padded-tb-big m-container-small">
+        <div class="ui container">
+
+            <div class="ui top attached segment">
+                <div class="ui middle aligned grid two column">
+                    <div class="column">
+                        <h3 class="ui header teal">分类</h3>
+                    </div>
+                    <div class="right aligned column">
+                        共<h2 class="ui header orange m-inline-block m-text-thin" th:text="${#arrays.length(types)}">14</h2> 篇
+                    </div>
+                </div>
+            </div>
+            <div class="ui attached segment m-padded-tb-large">
+                <div class="ui labeled button  m-margin-tb-tiny" th:each="type : ${types}">
+                    <a th:href="@{/types/{id}(id=${type.id})}" href="#" class="ui basic button" th:classappend="${type.id==activeTypeId} ?'teal': ''" th:text="${type.name}">思考与感悟</a>
+                    <div class="ui basic  left pointing label" th:classappend="${type.id==activeTypeId} ?'teal': ''" th:text="${#arrays.length(type.blogs)}">24</div>
+                </div>
+            </div>
+
+            <div class="ui  teal segment ">
+<!--                1-->
+                <div class="ui padded vertical segment m-padded-tb-large" th:each="blog: ${page.content}">
+                    <div class="ui middle aligned  mobile reversed stackable grid" >
+                        <div class="eleven wide column">
+                            <h3 class="ui header"><a href="#" class="m-black" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" th:text="${blog.title}">爱你的人，通常会有这些表现</a></h3>
+                            <p class="m-text" th:text="|${blog.description}......|">治愈你的情，抚慰你的心，点击右上角“关注”我，为你解忧 文｜河海 图｜来源网络 爱情和婚姻中，只有情投意合，相见意欢，才能长相厮守，如何判断一...</p>
+                            <div class="ui grid">
+                                <div class="eleven wide column">
+                                    <div class="ui mini horizontal link list">
+                                        <div class="item">
+                                            <img src="../static/images/img.png" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+                                            <div class="content">
+                                                <a href="#" class="header" th:text="${blog.user.nickname}">愈小希</a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2023-5-26</span>
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${blog.views}">2314</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-padded-tb-tiny m-text-thin" th:text="${blog.type.name}">了解更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="five wide column">
+                            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                <img src="../static/images/1.jpg" th:src="@{${blog.firstPicture}}" class="ui rounded image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+                <div class="ui middle aligned grid two column">
+                    <div class="column">
+                        <a href="#"  th:href="@{/types/{id}(id=${activeTypeId},pageNum=${page.pageNum}-1)}" th:unless="${page.first}" class="ui mini teal  basic button">上一页</a>
+                    </div>
+                    <div class="right aligned column">
+                        <a href="#" th:href="@{/types/{id}(id=${activeTypeId},pageNum=${page.pageNum}+1)}" th:unless="${page.last}" class="ui mini teal  basic button">下一页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<!--底部-->
+    <footer class="ui vertical inverted segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/微信.jpg" th:src="@{/images/微信.jpg}" class="ui rounded image" alt="我的名片" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">博客寄语</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">&nbsp;&nbsp;&nbsp;&nbsp;在微博上写上你的名字;在空间里存放你的相片;在博客中诉说我们的故事;让你的生日成为我的。</a>
+<!--                        <a href="#" class="item">我不能忘记你，所以只有你忘记我才能结束这段感情。</a>-->
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: wangsbia198@163.com</a>
+                        <a href="#" class="item">QQ: 3306877211</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">My Blog</h4>
+                    <p class="m-opacity-mini m-text-thin m-text-spaced">博客是继MSN、BBS、ICQ之后出现的第4种网络交流方式，现已受到大家的欢迎，是网络时代的个人“读者文摘”，是以超链接为入口的网络日记，它代表着新的生活、工作和学习方式。这是我的个人博客，分享关于生活，感情，编程，写作相关的内容，希望可以给您带来帮助</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright©2023-2030 designed by wang</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.5.0/components/accordion.js"></script>-->
+<script type="text/javascript">
+    $('.menu.toggle').click(function (){
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+</body>
+</html>
